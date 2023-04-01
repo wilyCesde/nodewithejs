@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- head from components partials -->
-    <%- include('../partials/head'); %>
-  </head>
-  <body class="container-fluid">
-    <!-- navbar from components partials -->
-    <%- include('../partials/navbar'); %>
+<head>
+  <!-- head from components partials -->
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+  <!-- navbar from components partials -->
+  <%- include('../partials/navbar'); %>
     <main>
-      <section class="container my-5">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quod
-          quisquam sapiente ullam reiciendis. Molestiae architecto, fugit
-          blanditiis cumque accusamus incidunt, excepturi delectus recusandae
-          rerum ab eos dolorum eius sapiente?
-        </p>
-      </section>
+      <div class="container">
+        <h1>
+          <%=title%>
+        </h1>
+        <ul>
+          <% let contador=0; %>
+          <% products.forEach(prod=> { %>
+            <% contador++; %>
+            <li style="color:<%=contador%2==1 ? 'green' : 'red'%>">
+              <%=prod.ref %>-<%= prod.descripcion %>-<%= prod.precio*2 %>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
     </main>
     <!-- footer from components partials -->
     <%- include('../partials/footer'); %>
-  </body>
+</body>
 </html>
